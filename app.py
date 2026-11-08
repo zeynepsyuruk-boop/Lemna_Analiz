@@ -6,7 +6,23 @@ Start with:  streamlit run app.py
 import os
 import sys
 from pathlib import Path
+# --- TEŞHİS VE DÜZELTME BLOĞU ---
+HERE = Path(__file__).resolve().parent
+print(f"DEBUG: Mevcut dizin: {HERE}")
+print(f"DEBUG: Dizindeki dosyalar: {os.listdir(HERE)}")
 
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
+
+# Eğer 'lemna' klasörü bir alt klasör içindeyse onu da ekleyelim
+lemna_path = HERE / "lemna"
+if lemna_path.exists():
+    print(f"DEBUG: 'lemna' klasörü bulundu. İçindekiler: {os.listdir(lemna_path)}")
+else:
+    print("DEBUG: 'lemna' KLAÖRÜ BULUNAMADI!")
+# -------------------------------
+
+import hashlib
 # ==============================================================================
 # 🚀 KRİTİK DÜZELTME: 'lemna' klasörünü Python'un arama yoluna (sys.path) ekler
 HERE = Path(__file__).resolve().parent
