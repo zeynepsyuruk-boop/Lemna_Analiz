@@ -3,13 +3,22 @@
 Start with:  streamlit run app.py
 """
 
+import os
+import sys
+from pathlib import Path
+
+# ==============================================================================
+# 🚀 KRİTİK DÜZELTME: 'lemna' klasörünü Python'un arama yoluna (sys.path) ekler
+HERE = Path(__file__).resolve().parent
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
+# ==============================================================================
+
 import hashlib
 import io
 import json
-import os
 import time
 import zipfile
-from pathlib import Path
 
 import cv2
 import numpy as np
@@ -27,7 +36,7 @@ from lemna.pipeline import ensure_endpoints, ensure_sheet, list_runs, merge_save
 from lemna.plots import CHART_KINDS, make_chart
 from lemna.report import build_report, compact_letters
 
-HERE = Path(__file__).resolve().parent
+# CONFIG_PATH tanımı (HERE yukarı taşındığı için doğrudan kullanılabilir)
 CONFIG_PATH = HERE / "config.json"
 
 st.set_page_config(page_title="Lemna Analiz", page_icon="🌿", layout="wide")
