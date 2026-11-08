@@ -1,0 +1,40 @@
+{
+  "run_id": "2026-11-06_13-33-08",
+  "analysed_at": "2026-11-06 13:33:08",
+  "note": "",
+  "metrics": [
+    "plant_area_mm2",
+    "frond_count_manual",
+    "frond_count_auto"
+  ],
+  "photo_folder": "/home/yesev/Applications/GEANT4/TÜBİTAK_PROJE/lemna_analiz/demo/photos",
+  "skipped": [],
+  "calibration_day": 0,
+  "area_per_frond": 3.8197949171412646,
+  "quality_warnings": [],
+  "extra_responses": [
+    "root_length_mm",
+    "pH_end",
+    "pH_change",
+    "ec_end",
+    "ec_change"
+  ],
+  "planned_comparisons": [
+    [
+      "G2",
+      "G7"
+    ],
+    [
+      "G5",
+      "G7"
+    ],
+    [
+      "G2",
+      "G8"
+    ],
+    [
+      "G6",
+      "G8"
+    ]
+  ]
+}

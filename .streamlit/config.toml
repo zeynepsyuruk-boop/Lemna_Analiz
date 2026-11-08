@@ -1,0 +1,14 @@
+[browser]
+gatherUsageStats = false
+
+[server]
+maxUploadSize = 2000
+# Polling the project folder (including .venv) on WSL costs a lot of CPU.
+fileWatcherType = "none"
+runOnSave = false
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+primaryColor = "#2e7d32"

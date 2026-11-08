@@ -1,0 +1,6 @@
+#!/home/yesev/Applications/GEANT4/TÜBİTAK_PROJE/lemna_analiz/.venv/bin/python
+import sys
+from uvicorn.main import main
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(main())

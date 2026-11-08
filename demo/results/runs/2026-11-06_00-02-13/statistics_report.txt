@@ -1,0 +1,319 @@
+QUALITY CHECKS (look at these before using the results)
+  ! Mixed model for frond_count_auto did not converge; do not report its estimates
+
+LEMNA MINOR GROWTH ANALYSIS - STATISTICAL REPORT
+============================================================
+Dishes (experimental units): 30
+Photos: 240
+Days: [0, 1, 2, 3, 4, 5, 6, 7]
+Significance level: 0.05
+
+------------------------------------------------------------
+RESPONSE: rgr_plant_area_mm2  (relative growth rate, 1/day)
+------------------------------------------------------------
+Descriptive statistics per group:
+group      group_label  n   mean     sd  median    min    max
+   G1          Control  5 0.2972 0.0202  0.2844 0.2799 0.3204
+   G2        Detergent  5 0.2468 0.0098  0.2465 0.2335 0.2612
+   G3              PLA  5 0.2838 0.0236  0.2854 0.2560 0.3198
+   G4             PETG  5 0.2830 0.0087  0.2808 0.2720 0.2953
+   G5  PLA + detergent  5 0.1891 0.0161  0.1944 0.1655 0.2047
+   G6 PETG + detergent  5 0.2107 0.0142  0.2067 0.1943 0.2304
+
+Assumption checks:
+  Shapiro-Wilk on ANOVA residuals: W = 0.984, p = 0.9175
+  Levene (median) across groups:   F = 0.646, p = 0.6669
+  Kruskal-Wallis (non-parametric): H = 24.525, p = 0.0002
+
+Two-way ANOVA (plastic x detergent, type II SS):
+                           sum_sq  df      F     PR(>F)  partial_eta_sq
+C(plastic)              0.0067008   2 12.556 0.00018551         0.51131
+C(detergent)             0.039363   1 147.51 9.7364e-12         0.86007
+C(plastic):C(detergent) 0.0024513   2 4.5932   0.020465         0.27681
+Residual                0.0064043  24    NaN        NaN             NaN
+
+Interaction contrasts (combined effect minus sum of single effects):
+                                    contrast  estimate    ci_low   ci_high   p_value
+ PLA x detergent (deviation from additivity) -0.044283 -0.074438 -0.014128 0.0057667
+PETG x detergent (deviation from additivity)  -0.02189 -0.052045 0.0082657   0.14713
+
+Robustness check (9999 Freedman-Lane permutations, seed 12345; ANOVA on log(RGR)):
+                 source     F   p_anova  p_permutation  p_anova_log_rgr
+             C(plastic) 12.56 0.0001855         0.0009        6.167e-05
+           C(detergent) 147.5 9.736e-12         0.0001        7.265e-12
+C(plastic):C(detergent) 4.593   0.02047         0.0219         0.003774
+  Shapiro-Wilk on log(RGR) residuals: p = 0.9547
+  All three tests lead to the same conclusion at alpha = 0.05.
+
+Tukey HSD pairwise comparisons between groups:
+group1 group2  meandiff        p_adj    ci_low   ci_high  reject
+    G1     G2 -0.050388 7.221505e-04 -0.082332 -0.018444    True
+    G1     G3 -0.013471 7.800451e-01 -0.045416  0.018473   False
+    G1     G4 -0.014204 7.410053e-01 -0.046148  0.017740   False
+    G1     G5 -0.108142 2.846402e-09 -0.140087 -0.076198    True
+    G1     G6 -0.086482 1.966392e-07 -0.118426 -0.054538    True
+    G2     G3  0.036916 1.700236e-02  0.004972  0.068860    True
+    G2     G4  0.036184 2.002439e-02  0.004240  0.068128    True
+    G2     G5 -0.057755 1.242410e-04 -0.089699 -0.025810    True
+    G2     G6 -0.036094 2.043000e-02 -0.068038 -0.004150    True
+    G3     G4 -0.000733 9.999997e-01 -0.032677  0.031211   False
+    G3     G5 -0.094671 3.716344e-08 -0.126615 -0.062727    True
+    G3     G6 -0.073010 3.627887e-06 -0.104954 -0.041066    True
+    G4     G5 -0.093938 4.299533e-08 -0.125882 -0.061994    True
+    G4     G6 -0.072278 4.276702e-06 -0.104222 -0.040334    True
+    G5     G6  0.021661 3.221279e-01 -0.010283  0.053605   False
+
+------------------------------------------------------------
+RESPONSE: rgr_frond_count_manual  (relative growth rate, 1/day)
+------------------------------------------------------------
+Descriptive statistics per group:
+group      group_label  n   mean     sd  median    min    max
+   G1          Control  5 0.2988 0.0182  0.2971 0.2745 0.3241
+   G2        Detergent  5 0.2392 0.0119  0.2391 0.2226 0.2560
+   G3              PLA  5 0.2853 0.0260  0.2910 0.2540 0.3216
+   G4             PETG  5 0.2783 0.0114  0.2745 0.2710 0.2985
+   G5  PLA + detergent  5 0.1680 0.0113  0.1684 0.1569 0.1823
+   G6 PETG + detergent  5 0.1942 0.0223  0.1980 0.1684 0.2226
+
+Assumption checks:
+  Shapiro-Wilk on ANOVA residuals: W = 0.989, p = 0.9823
+  Levene (median) across groups:   F = 1.049, p = 0.4125
+  Kruskal-Wallis (non-parametric): H = 25.146, p = 0.0001
+
+Two-way ANOVA (plastic x detergent, type II SS):
+                           sum_sq  df      F     PR(>F)  partial_eta_sq
+C(plastic)              0.0098491   2 15.528 4.7085e-05         0.56408
+C(detergent)             0.056732   1 178.89 1.2821e-12         0.88171
+C(plastic):C(detergent) 0.0041897   2 6.6055  0.0051818         0.35503
+Residual                0.0076113  24    NaN        NaN             NaN
+
+Interaction contrasts (combined effect minus sum of single effects):
+                                    contrast  estimate    ci_low   ci_high   p_value
+ PLA x detergent (deviation from additivity) -0.057671 -0.090546 -0.024797 0.0013655
+PETG x detergent (deviation from additivity) -0.024437 -0.057312 0.0084371   0.13806
+
+Robustness check (9999 Freedman-Lane permutations, seed 12345; ANOVA on log(RGR)):
+                 source     F   p_anova  p_permutation  p_anova_log_rgr
+             C(plastic) 15.53 4.708e-05         0.0007        1.181e-05
+           C(detergent) 178.9 1.282e-12         0.0001        9.846e-13
+C(plastic):C(detergent) 6.606  0.005182         0.0059        0.0005631
+  Shapiro-Wilk on log(RGR) residuals: p = 0.9331
+  All three tests lead to the same conclusion at alpha = 0.05.
+
+Tukey HSD pairwise comparisons between groups:
+group1 group2  meandiff        p_adj    ci_low   ci_high  reject
+    G1     G2 -0.059603 2.589566e-04 -0.094428 -0.024779    True
+    G1     G3 -0.013493 8.334717e-01 -0.048317  0.021331   False
+    G1     G4 -0.020503 4.722215e-01 -0.055327  0.014321   False
+    G1     G5 -0.130767 3.529254e-10 -0.165592 -0.095943    True
+    G1     G6 -0.104543 2.916410e-08 -0.139368 -0.069719    True
+    G2     G3  0.046110 4.939395e-03  0.011286  0.080935    True
+    G2     G4  0.039100 2.148818e-02  0.004276  0.073925    True
+    G2     G5 -0.071164 2.119035e-05 -0.105989 -0.036340    True
+    G2     G6 -0.044940 6.345747e-03 -0.079765 -0.010116    True
+    G3     G4 -0.007010 9.882284e-01 -0.041834  0.027814   False
+    G3     G5 -0.117274 3.159032e-09 -0.152099 -0.082450    True
+    G3     G6 -0.091050 3.664611e-07 -0.125875 -0.056226    True
+    G4     G5 -0.110264 1.053567e-08 -0.145089 -0.075440    True
+    G4     G6 -0.084040 1.467480e-06 -0.118865 -0.049216    True
+    G5     G6  0.026224 2.217490e-01 -0.008600  0.061048   False
+
+------------------------------------------------------------
+RESPONSE: rgr_frond_count_auto  (relative growth rate, 1/day)
+------------------------------------------------------------
+Descriptive statistics per group:
+group      group_label  n   mean     sd  median    min    max
+   G1          Control  5 0.2375 0.0317  0.2543 0.1912 0.2674
+   G2        Detergent  5 0.2013 0.0080  0.2024 0.1912 0.2103
+   G3              PLA  5 0.2338 0.0252  0.2299 0.2138 0.2765
+   G4             PETG  5 0.2272 0.0189  0.2245 0.2004 0.2478
+   G5  PLA + detergent  5 0.1214 0.0134  0.1236 0.0990 0.1349
+   G6 PETG + detergent  5 0.1418 0.0236  0.1309 0.1198 0.1790
+
+Assumption checks:
+  Shapiro-Wilk on ANOVA residuals: W = 0.989, p = 0.9875
+  Levene (median) across groups:   F = 0.632, p = 0.6769
+  Kruskal-Wallis (non-parametric): H = 22.756, p = 0.0004
+
+Two-way ANOVA (plastic x detergent, type II SS):
+                           sum_sq  df      F    PR(>F)  partial_eta_sq
+C(plastic)               0.010058   2 10.806 0.0004504         0.47382
+C(detergent)             0.045632   1 98.048 5.957e-10         0.80336
+C(plastic):C(detergent) 0.0074554   2 8.0095 0.0021644         0.40029
+Residual                  0.01117  24    NaN       NaN             NaN
+
+Interaction contrasts (combined effect minus sum of single effects):
+                                    contrast  estimate    ci_low    ci_high    p_value
+ PLA x detergent (deviation from additivity) -0.076168  -0.11599  -0.036343 0.00060177
+PETG x detergent (deviation from additivity) -0.049133 -0.088957 -0.0093081   0.017723
+
+Robustness check (9999 Freedman-Lane permutations, seed 12345; ANOVA on log(RGR)):
+                 source     F   p_anova  p_permutation  p_anova_log_rgr
+             C(plastic) 10.81 0.0004504         0.0053        7.583e-05
+           C(detergent) 98.05 5.957e-10         0.0001        2.348e-10
+C(plastic):C(detergent)  8.01  0.002164         0.0015        0.0002106
+  Shapiro-Wilk on log(RGR) residuals: p = 0.9821
+  All three tests lead to the same conclusion at alpha = 0.05.
+
+Tukey HSD pairwise comparisons between groups:
+group1 group2  meandiff        p_adj    ci_low   ci_high  reject
+    G1     G2 -0.036235 1.221485e-01 -0.078422  0.005952   False
+    G1     G3 -0.003761 9.997543e-01 -0.045948  0.038426   False
+    G1     G4 -0.010338 9.720142e-01 -0.052525  0.031849   False
+    G1     G5 -0.116164 1.446992e-07 -0.158351 -0.073977    True
+    G1     G6 -0.095706 4.096623e-06 -0.137893 -0.053519    True
+    G2     G3  0.032474 2.028244e-01 -0.009713  0.074661   False
+    G2     G4  0.025897 4.272453e-01 -0.016290  0.068084   False
+    G2     G5 -0.079929 6.450272e-05 -0.122116 -0.037742    True
+    G2     G6 -0.059471 2.591865e-03 -0.101658 -0.017284    True
+    G3     G4 -0.006577 9.963754e-01 -0.048764  0.035610   False
+    G3     G5 -0.112403 2.618807e-07 -0.154590 -0.070216    True
+    G3     G6 -0.091945 7.804688e-06 -0.134132 -0.049758    True
+    G4     G5 -0.105826 7.564817e-07 -0.148013 -0.063639    True
+    G4     G6 -0.085368 2.457269e-05 -0.127555 -0.043181    True
+    G5     G6  0.020458 6.678591e-01 -0.021729  0.062645   False
+
+------------------------------------------------------------
+MIXED MODEL for daily ln(plant_area_mm2), random intercept per dish
+------------------------------------------------------------
+  Note: a random-effect variance is estimated at zero (boundary fit). The fixed effects can be used, but the random-effects part is effectively simpler than specified.
+  Note: the model with a random slope did not converge; a random intercept was used.
+                        Mixed Linear Model Regression Results
+======================================================================================
+Model:                        MixedLM           Dependent Variable:           log_y   
+No. Observations:             240               Method:                       REML    
+No. Groups:                   30                Scale:                        0.0030  
+Min. group size:              8                 Log-Likelihood:               282.4568
+Max. group size:              8                 Converged:                    Yes     
+Mean group size:              8.0                                                     
+--------------------------------------------------------------------------------------
+                                           Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+--------------------------------------------------------------------------------------
+Intercept                                   4.018    0.032 125.741 0.000  3.956  4.081
+C(plastic)[T.PLA]                          -0.037    0.045  -0.808 0.419 -0.125  0.052
+C(plastic)[T.PETG]                         -0.066    0.045  -1.453 0.146 -0.154  0.023
+C(detergent)[T.yes]                        -0.173    0.045  -3.820 0.000 -0.261 -0.084
+C(plastic)[T.PLA]:C(detergent)[T.yes]      -0.007    0.064  -0.106 0.915 -0.132  0.118
+C(plastic)[T.PETG]:C(detergent)[T.yes]      0.065    0.064   1.018 0.309 -0.060  0.190
+day                                         0.290    0.004  76.717 0.000  0.283  0.297
+day:C(plastic)[T.PLA]                      -0.009    0.005  -1.649 0.099 -0.019  0.002
+day:C(plastic)[T.PETG]                     -0.010    0.005  -1.921 0.055 -0.021  0.000
+day:C(detergent)[T.yes]                    -0.048    0.005  -8.994 0.000 -0.059 -0.038
+day:C(plastic)[T.PLA]:C(detergent)[T.yes]  -0.052    0.008  -6.821 0.000 -0.066 -0.037
+day:C(plastic)[T.PETG]:C(detergent)[T.yes] -0.028    0.008  -3.647 0.000 -0.042 -0.013
+Group Var                                   0.004    0.024                            
+======================================================================================
+
+
+------------------------------------------------------------
+MIXED MODEL for daily ln(frond_count_manual), random intercept and slope per dish
+------------------------------------------------------------
+  Note: a random-effect variance is estimated at zero (boundary fit). The fixed effects can be used, but the random-effects part is effectively simpler than specified.
+                        Mixed Linear Model Regression Results
+======================================================================================
+Model:                        MixedLM           Dependent Variable:           log_y   
+No. Observations:             240               Method:                       REML    
+No. Groups:                   30                Scale:                        0.0010  
+Min. group size:              8                 Log-Likelihood:               383.2970
+Max. group size:              8                 Converged:                    Yes     
+Mean group size:              8.0                                                     
+--------------------------------------------------------------------------------------
+                                           Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+--------------------------------------------------------------------------------------
+Intercept                                   2.498    0.011 218.794 0.000  2.476  2.520
+C(plastic)[T.PLA]                          -0.001    0.016  -0.044 0.965 -0.032  0.031
+C(plastic)[T.PETG]                         -0.022    0.016  -1.364 0.172 -0.054  0.010
+C(detergent)[T.yes]                        -0.023    0.016  -1.449 0.147 -0.055  0.008
+C(plastic)[T.PLA]:C(detergent)[T.yes]       0.028    0.023   1.214 0.225 -0.017  0.072
+C(plastic)[T.PETG]:C(detergent)[T.yes]      0.038    0.023   1.670 0.095 -0.007  0.083
+day                                         0.297    0.008  36.936 0.000  0.281  0.312
+day:C(plastic)[T.PLA]                      -0.015    0.011  -1.305 0.192 -0.037  0.007
+day:C(plastic)[T.PETG]                     -0.014    0.011  -1.227 0.220 -0.036  0.008
+day:C(detergent)[T.yes]                    -0.059    0.011  -5.207 0.000 -0.081 -0.037
+day:C(plastic)[T.PLA]:C(detergent)[T.yes]  -0.054    0.016  -3.355 0.001 -0.085 -0.022
+day:C(plastic)[T.PETG]:C(detergent)[T.yes] -0.029    0.016  -1.787 0.074 -0.060  0.003
+Group Var                                   0.000    0.006                            
+Group x day Cov                             0.000    0.003                            
+day Var                                     0.000    0.003                            
+======================================================================================
+
+
+------------------------------------------------------------
+MIXED MODEL for daily ln(frond_count_auto), random intercept and slope per dish
+------------------------------------------------------------
+  WARNING: the model did not converge. Its estimates and p values are not reliable and should not be reported.
+                        Mixed Linear Model Regression Results
+=====================================================================================
+Model:                        MixedLM           Dependent Variable:           log_y  
+No. Observations:             240               Method:                       REML   
+No. Groups:                   30                Scale:                        0.0291 
+Min. group size:              8                 Log-Likelihood:               -7.8259
+Max. group size:              8                 Converged:                    No     
+Mean group size:              8.0                                                    
+-------------------------------------------------------------------------------------
+                                           Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+-------------------------------------------------------------------------------------
+Intercept                                   2.594    0.049 52.553 0.000  2.497  2.691
+C(plastic)[T.PLA]                          -0.060    0.070 -0.865 0.387 -0.197  0.076
+C(plastic)[T.PETG]                         -0.040    0.070 -0.571 0.568 -0.177  0.097
+C(detergent)[T.yes]                        -0.103    0.070 -1.472 0.141 -0.240  0.034
+C(plastic)[T.PLA]:C(detergent)[T.yes]       0.124    0.099  1.258 0.208 -0.069  0.318
+C(plastic)[T.PETG]:C(detergent)[T.yes]      0.121    0.099  1.223 0.221 -0.073  0.314
+day                                         0.248    0.080  3.090 0.002  0.091  0.405
+day:C(plastic)[T.PLA]                       0.008    0.113  0.074 0.941 -0.214  0.231
+day:C(plastic)[T.PETG]                     -0.012    0.113 -0.110 0.912 -0.235  0.210
+day:C(detergent)[T.yes]                    -0.029    0.113 -0.260 0.795 -0.252  0.193
+day:C(plastic)[T.PLA]:C(detergent)[T.yes]  -0.091    0.160 -0.567 0.571 -0.405  0.223
+day:C(plastic)[T.PETG]:C(detergent)[T.yes] -0.054    0.160 -0.336 0.737 -0.368  0.260
+Group Var                                   0.000    0.020                           
+Group x day Cov                            -0.000    0.063                           
+day Var                                     0.031                                    
+=====================================================================================
+
+
+------------------------------------------------------------
+AREA PER FROND (mm2, median of plant_area_mm2 / manual count), assumption of the area-based count
+------------------------------------------------------------
+day      0    1    2    3    4    5    6    7  all_days  deviation_from_overall_pct
+group                                                                              
+G1    4.37 4.82 4.51 4.59 4.43 4.47 4.31 4.47      4.45                           6
+G2    3.85 4.14 3.98 4.19 4.09 4.11 4.03 4.05      4.04                       -3.71
+G3    4.36 4.43 4.27 4.55 4.39 4.54 4.36 4.22      4.38                        4.36
+G4    4.16 4.47 4.43 4.34 4.58 4.19 4.24 4.29      4.32                        3.03
+G5    3.47 3.92  3.8 3.97 4.02 3.76 3.87 4.09      3.86                       -7.87
+G6    3.64 4.03 4.11 4.16 4.19 3.88 4.02 4.02      4.03                       -3.99
+  Largest group deviation from the overall median: 7.9 %
+  Kruskal-Wallis across groups (dish means): p = 0.0003
+  Mean change over the experiment: +1.6 % (t-test of dish slopes, p = 0.1824)
+  Area per frond differs slightly but significantly between groups (within 10 %); the area-based count may be biased by about this amount.
+
+------------------------------------------------------------
+AGREEMENT: watershed count vs manual frond count (H6)
+------------------------------------------------------------
+  n_pairs: 240
+  pearson_r: 0.9668
+  pearson_p: 0.0000
+  lin_ccc: 0.9421
+  mean_bias_auto_minus_manual: -3.0667
+  loa_low: -15.3605
+  loa_high: 9.2272
+  mae: 4.8000
+  mape_pct: 14.9604
+  n_pairs_mape: 240
+
+------------------------------------------------------------
+AGREEMENT: area-based count (calibration day excluded) vs manual frond count (H6)
+------------------------------------------------------------
+  n_pairs: 210
+  pearson_r: 0.9946
+  pearson_p: 0.0000
+  lin_ccc: 0.9833
+  mean_bias_auto_minus_manual: 2.7345
+  loa_low: -3.5005
+  loa_high: 8.9695
+  mae: 3.0769
+  mape_pct: 8.2241
+  n_pairs_mape: 210
+
+
+Area per frond used for the area-based count: 3.939 mm2

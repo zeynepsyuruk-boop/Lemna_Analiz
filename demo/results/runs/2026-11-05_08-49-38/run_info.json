@@ -1,0 +1,15 @@
+{
+  "run_id": "2026-11-05_08-49-38",
+  "analysed_at": "2026-11-05 08:49:38",
+  "note": "after fixes",
+  "metrics": [
+    "plant_area_mm2",
+    "frond_count_manual",
+    "frond_count_auto"
+  ],
+  "photo_folder": "demo/photos",
+  "skipped": [],
+  "calibration_day": 0,
+  "area_per_frond": 5.378971015313122,
+  "quality_warnings": []
+}

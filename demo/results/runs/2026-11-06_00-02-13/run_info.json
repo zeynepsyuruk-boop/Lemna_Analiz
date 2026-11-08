@@ -1,0 +1,17 @@
+{
+  "run_id": "2026-11-06_00-02-13",
+  "analysed_at": "2026-11-06 00:02:13",
+  "note": "yeni demo (v2)",
+  "metrics": [
+    "plant_area_mm2",
+    "frond_count_manual",
+    "frond_count_auto"
+  ],
+  "photo_folder": "demo/photos",
+  "skipped": [],
+  "calibration_day": 0,
+  "area_per_frond": 3.9394065491995667,
+  "quality_warnings": [
+    "Mixed model for frond_count_auto did not converge; do not report its estimates"
+  ]
+}
